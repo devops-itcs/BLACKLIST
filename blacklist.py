@@ -11,6 +11,7 @@ vpbbk = "10.10.150.52"
 topcall1 = "10.10.94.34"
 topcall3 = "10.10.92.110"
 ops137 = "10.10.99.137"
+sip94101 = "10.10.94.101"
 
 def gen_list():
 	sql_list = []
@@ -22,7 +23,7 @@ INSERT INTO userblacklist(prefix,whitelist) VALUES {}\
 '''.format((data,0)))
 	return sql_list
 
-for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall3,ops137):
+for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall3,ops137,sip94101):
 	try:
 		conn = psycopg2.connect(
 			database="opensips", 
@@ -43,7 +44,7 @@ for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall3,ops137):
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall3,ops137):
+for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall3,ops137,sip94101):
 	try:
 		ssh.connect(server, username="root", password="Pls@1234!")
 		stdin,stdout,stderr = ssh.exec_command("opensipsctl fifo reload_blacklist")
