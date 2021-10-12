@@ -25,7 +25,7 @@ INSERT INTO userblacklist(prefix,whitelist) VALUES {}\
 '''.format((data,0)))
 	return sql_list
 
-for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall3,ops137,sip94101):
+for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall2,topcall3,topcall4,ops137,sip94101):
 	try:
 		conn = psycopg2.connect(
 			database="opensips", 
