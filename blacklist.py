@@ -3,7 +3,7 @@
 import paramiko
 import psycopg2
 
-evn = "10.10.94.131"
+evn = "10.10.94.148"
 vtfe = "10.10.99.222"
 mbnp = "10.10.99.130"
 vpb = "10.10.154.100"
@@ -46,7 +46,7 @@ for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall3,ops137,sip94101):
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall3,ops137,sip94101):
+for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall2,topcall3,topcall4,ops137,sip94101):
 	try:
 		ssh.connect(server, username="root", password="Pls@1234!")
 		stdin,stdout,stderr = ssh.exec_command("opensipsctl fifo reload_blacklist")
