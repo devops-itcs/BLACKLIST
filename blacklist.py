@@ -49,5 +49,5 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall2,topcall3,topcall4,ops137,sip94101):
 	try:
 		ssh.connect(server, username="root", password="Pls@1234!")
-		stdin,stdout,stderr = ssh.exec_command("opensipsctl fifo lb_reload")
+		stdin,stdout,stderr = ssh.exec_command("opensipsctl fifo reload_blacklist")
 	except: pass
