@@ -20,10 +20,11 @@ def gen_list():
 	sql_list = []
 	for data in open("blacklist_phone_num").readlines():
 		if data != "":
-			data = data.strip()
-			sql_list.append('''\
-INSERT INTO userblacklist(prefix,whitelist) VALUES {}\
-'''.format((data,0)))
+			if len(data) == 11:
+				data = data.strip()
+				sql_list.append('''\
+	INSERT INTO userblacklist(prefix,whitelist) VALUES {}\
+	'''.format((data,0)))
 	return sql_list
 
 for server in (evn,vtfe,mbnp,vpb,vpbbk,topcall1,topcall2,topcall3,topcall4,ops137,sip94101,sipbk):
