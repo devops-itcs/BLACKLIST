@@ -20,7 +20,7 @@ def gen_list():
 	sql_list = []
 	for data in open("blacklist_phone_num").readlines():
 		if data != "":
-			if len(data) == 10:
+			if len(data) == 11:
 				data = data.strip()
 				sql_list.append('''\
 	INSERT INTO userblacklist(prefix,whitelist) VALUES {}\
